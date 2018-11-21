@@ -15,3 +15,8 @@ npm install express --save
 ```
 touch index.js
 ```
+- Add GitHub origin
+```
+git remote add origin https://github.com/geejay81/node-restful-api.git
+git push -u origin master
+```
