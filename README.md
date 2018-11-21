@@ -28,3 +28,12 @@ npm install nodemon --save-dev
 ```
 nodemon index
 ```
+- Add a file to store the API routes
+```
+mkdir routes
+touch routes/api.js
+```
+- Install body-parser middleware so that we can process body in requests
+```
+npm install body-parser --save
+```
