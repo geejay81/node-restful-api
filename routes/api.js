@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+const Dinosaur = require('../models/dinosaur');
 
 // Get a list of all dinosaurs
 router.get('/dinosaurs', function(request, response) {
@@ -9,9 +10,9 @@ router.get('/dinosaurs', function(request, response) {
 
 // Add a dinosaur to the list
 router.post('/dinosaurs', function(request, response) {
-    console.log('POST /api/dinosaurs');
-    console.log(request.body);
-    response.send({ result: "Not yet implemented" });
+    Dinosaur.create(request.body).then(function(dinosaur) {
+        response.send(dinosaur);
+    });
 });
 
 // Update a dinosaur already in the database

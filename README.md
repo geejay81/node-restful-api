@@ -37,3 +37,12 @@ touch routes/api.js
 ```
 npm install body-parser --save
 ```
+- Install Mongoose so that we can talk to MongoDb. Save to dependencies
+```
+npm install mongoose --save
+```
+- Add a schema to represent our model
+```
+mkdir models
+touch models/dinosaur.js
+```
