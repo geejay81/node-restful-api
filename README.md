@@ -46,3 +46,17 @@ npm install mongoose --save
 mkdir models
 touch models/dinosaur.js
 ```
+- Setup to serve static files
+``` js
+// in index.js
+// first in list of middleware
+app.use(express.static('public));
+// application will serve files in the public folder
+```
+- Make the public folder and add an index page, with styles.css
+```
+mkdir public
+touch public/index.html
+touch public/styles.css
+touch public/main.js
+```
