@@ -50,7 +50,7 @@ touch models/dinosaur.js
 ``` js
 // in index.js
 // first in list of middleware
-app.use(express.static('public));
+app.use(express.static('public'));
 // application will serve files in the public folder
 ```
 - Make the public folder and add an index page, with styles.css
