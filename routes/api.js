@@ -2,24 +2,21 @@ const express = require('express');
 const router = express.Router();
 const Dinosaur = require('../models/dinosaur');
 
-// Get a list of all dinosaurs
+// Get/search dinosaurs
 router.get('/dinosaurs', function(request, response, next) {
-    Dinosaur.find({}).then(function(dinosaurs) {
-        response.send(dinosaurs);
-    });
-});
+    var query = {};
 
-// Search for dinosaurs
-router.get('/dinosaurs/search', function(request, response, next) {
-    var query = {
-        $or: [
-            { name: {$regex: request.query.searchString, $options: 'i'} },
-            { type: {$regex: request.query.searchString, $options: 'i'} },
-            { diet: {$regex: request.query.searchString, $options: 'i'} },
-            { foundIn: {$regex: request.query.searchString, $options: 'i'} },
-            { whenItLived: {$regex: request.query.searchString, $options: 'i'} }
-        ]
-    };
+    if (request.query.searchString.length > 0) {
+        query = {
+            $or: [
+                { name: {$regex: request.query.searchString, $options: 'i'} },
+                { type: {$regex: request.query.searchString, $options: 'i'} },
+                { diet: {$regex: request.query.searchString, $options: 'i'} },
+                { foundIn: {$regex: request.query.searchString, $options: 'i'} },
+                { whenItLived: {$regex: request.query.searchString, $options: 'i'} }
+            ]
+        };
+    }
 
     Dinosaur.find(query).then(function(dinosaurs) {
         response.send(dinosaurs);

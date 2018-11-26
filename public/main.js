@@ -73,7 +73,7 @@ var Dinosaurs = React.createClass({
 
     var searchString = this.refs.searchString.value;
 
-    fetch("/api/dinosaurs/search?searchString=" + encodeURI(searchString))
+    fetch("/api/dinosaurs?searchString=" + encodeURI(searchString))
       .then(function(data) {
         return data.json();
       })
